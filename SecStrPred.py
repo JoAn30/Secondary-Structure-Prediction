@@ -23,7 +23,7 @@ run /path/to/local/sequence/ - Enter local sequence to predict secondary structu
 # run_parser.add_argument('sequence', 'The full path to sequence file.')
 train_parser = subparser.add_parser('build')
 train_parser.add_argument('train_size', help='CASP training data size, sizes are 30, 50, 70, 90 or 95, default is 95', type=int, default=95)
-
+train_parser.add_argument('casp_ver', help='')
 def main(args):
     if np.isin(size_allowed, train_size):
         print('Error! Invalid data size')
@@ -42,6 +42,7 @@ def main(args):
 def build(args):
     if np.isin(size_allowed, train_size):
         print('Error! Invalid data size')
+        
         return
 
     return

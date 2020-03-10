@@ -86,4 +86,6 @@ def read_protein(filename_queue, max_length, num_evo_entries=21, name=None):
         mask = tf.cond(tf.not_equal(tf.size(mask), 0), lambda: mask, lambda: tf.ones([pri_length]))
         ter_mask = masking_matrix(mask, name='ter_mask')        
 
-        return id_, one_hot_primary, evolutionary, secondary, tertiary, ter_mask, pri_length, keep
+        # return id_, one_hot_primary, evolutionary , secondary, tertiary, ter_mask, pri_length, keep
+        # Original return, changed to match what we need for our model.
+        return id_, one_hot_primary, secondary, pri_length, keep
